@@ -7,8 +7,10 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class PaymentService {
 
+    private String threadName = "";
+
     public String paymentInfo_OK(Long id) {
-        return "线程池：" + Thread.currentThread().getName() + " paymentInfo_OK,id:" + id + "\t哈哈～～";
+        return "线程池：" + threadName + " paymentInfo_OK,id:" + id + "\t哈哈～～";
     }
 
     public String paymentInfo_Timeout() {
@@ -18,7 +20,8 @@ public class PaymentService {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return "线程池：" + Thread.currentThread().getName() + " paymentInfo_Timeout," + "\t哈哈～～\t耗时" + tm + "秒";
+        threadName = Thread.currentThread().getName();
+        return "线程池：" + threadName + " paymentInfo_Timeout," + "\t哈哈～～\t耗时" + tm + "秒";
     }
 
 }
