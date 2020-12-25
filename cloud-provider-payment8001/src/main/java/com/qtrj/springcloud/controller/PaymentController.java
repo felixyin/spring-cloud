@@ -10,6 +10,7 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -54,6 +55,11 @@ public class PaymentController {
             log.info("\n" + instance.getServiceId() + "\t" + instance.getHost() + "\t" + instance.getPort() + "\t" + instance.getUri());
         }
         return new CommentResult<>(200, "服务列表信息：", serverPort, instances);
+    }
+
+    @GetMapping("/payment/lb")
+    public String getPaymentLB() {
+        return serverPort;
     }
 
 }

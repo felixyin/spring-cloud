@@ -56,4 +56,10 @@ public class PaymentController {
         return new CommentResult<>(200, "服务列表信息：", serverPort, instances);
     }
 
+
+    @GetMapping("/payment/lb")
+    public String getPaymentLB() {
+        return serverPort;
+    }
+
 }
