@@ -4,6 +4,9 @@ server:
 eureka:
   instance:
     hostname: eureka7001.com
+  server:
+    enable-self-preservation: false # 禁用自我保护模式（90秒）
+    eviction-interval-timer-in-ms: 3000 # 从90s改为3s
   client:
     # false表示不向注册中心注册自己
     register-with-eureka: false
