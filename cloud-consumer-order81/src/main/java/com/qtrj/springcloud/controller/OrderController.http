@@ -1,0 +1,9 @@
+# 创建测试
+GET http://localhost:81/consumer/payment/create?serial=88
+Accept: application/json
+
+###
+# 查询测试
+GET http://localhost:81/consumer/payment/get/32
+Accept: application/json
+
