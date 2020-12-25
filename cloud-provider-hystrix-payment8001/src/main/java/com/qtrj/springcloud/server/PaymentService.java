@@ -23,7 +23,7 @@ public class PaymentService {
     })
     public String paymentInfo_Timeout() {
 // 模拟报错情况
-        int age = 10 / 0;
+//        int age = 10 / 0;
 // 模拟超时情况
 //        int tm = 5;
         int tm = 2;
