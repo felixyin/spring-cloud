@@ -14,3 +14,14 @@ spring:
 mybatis:
   mapper-locations: classpath*:mapper/*.xml
   type-aliases-package: com.qtrj.springcloud.entities
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+  instance:
+    # 服务server id
+    instance-id: payment8001
+    # 访问路径可以显示ip地址
+    prefer-ip-address: true
