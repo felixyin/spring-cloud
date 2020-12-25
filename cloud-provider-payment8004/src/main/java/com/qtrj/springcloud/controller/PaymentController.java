@@ -14,7 +14,7 @@ public class PaymentController {
     @Value("${server.port}")
     private String serverPort;
 
-    @GetMapping("/paymentzk")
+    @GetMapping("/payment/zk")
     public String paymentzk() {
         return "spring zookeeper is ok？ " + serverPort + "," + UUID.randomUUID();
     }

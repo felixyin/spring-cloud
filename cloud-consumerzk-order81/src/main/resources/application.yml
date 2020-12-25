@@ -1,10 +1,11 @@
+
 server:
-  port: 8004
+  port: 81
 
 spring:
   application:
     #    服务别名
-    name: cloud-provider-payment
+    name: cloud-consumer-order
   #     排除spring jdbc
   autoconfigure:
     exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
