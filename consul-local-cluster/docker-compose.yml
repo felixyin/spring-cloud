@@ -1,0 +1,17 @@
+version: "3.1"
+
+# 4lw.commands.whitelist=*
+services:
+  consul1:
+    image: qtrj.i234.me:8084/consul
+    restart: always
+    stdin_open: true
+    tty: true
+    hostname: consul1
+    ports:
+      - 2181:2181
+      - 8300-8302:8300-8302
+      - 8500:8500
+      - 8600:8600
+    environment:
+      CONSUL_BIND_INTERFACE: eth0

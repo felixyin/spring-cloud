@@ -17,6 +17,8 @@
       <module>cloud-provider-payment8004</module>
     <module>cloud-consumer-order82</module>
     <module>cloud-consumerzk-order81</module>
+    <module>cloud-providerconsul-payment8006</module>
+    <module>cloudj-consumerconsul-order81</module>
   </modules>
 
   <name>Maven</name>
