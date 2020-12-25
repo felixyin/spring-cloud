@@ -3,6 +3,7 @@ package com.qtrj.springcloud.controller;
 import com.qtrj.springcloud.entities.CommentResult;
 import com.qtrj.springcloud.entities.Payment;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,6 +28,32 @@ public class OrderController {
     @GetMapping("/consumer/payment/get/{id}")
     public CommentResult getPayment(@PathVariable("id") Long id) {
         return restTemplate.getForObject(PAYMENT_URL + "/payment/get/" + id, CommentResult.class);
+    }
+
+    /**
+     * spring-cloud-starter-netflix-eureka-client 已经引入ribbon负载均衡组件了
+     * @param payment
+     * @return
+     */
+    @GetMapping("/consumer/payment/createEntity")
+    public CommentResult createEntity(Payment payment) {
+        ResponseEntity<CommentResult> responseEntity = restTemplate.postForEntity(PAYMENT_URL + "/payment/create", payment, CommentResult.class);
+        if (responseEntity.getStatusCode().is2xxSuccessful()) {
+            return responseEntity.getBody();
+        } else {
+            return new CommentResult(responseEntity.getStatusCodeValue(), "保存失败！", null);
+        }
+    }
+
+    @GetMapping("/consumer/payment/getEntity/{id}")
+    public CommentResult getPaymentEntry(@PathVariable("id") Long id) {
+        ResponseEntity<CommentResult> forEntity = restTemplate.getForEntity(PAYMENT_URL + "/payment/get/" + id, CommentResult.class);
+        boolean xxSuccessful = forEntity.getStatusCode().is2xxSuccessful();
+        if (xxSuccessful) {
+            return forEntity.getBody();
+        } else {
+            return new CommentResult(forEntity.getStatusCodeValue(), "查询失败！", null);
+        }
     }
 
 }
