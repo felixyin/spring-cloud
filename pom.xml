@@ -45,6 +45,10 @@
   <!--子模块继承后,提供作用:锁定版本+子module不用groupId和version-->
   <dependencyManagement>
     <dependencies>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-logging</artifactId>
+      </dependency>
       <!--springboot 2.2.2-->
       <dependency>
         <groupId>org.springframework.boot</groupId>
