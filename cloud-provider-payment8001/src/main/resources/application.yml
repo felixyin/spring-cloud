@@ -2,6 +2,7 @@ server:
   port: 8001
 spring:
   application:
+    #    服务别名
     name: cloud-payment-service
   datasource:
     # 当前数据源操作类型
@@ -20,8 +21,8 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://localhost:7001/eureka
-#  instance: # eureka面板status列是否显示ip端详等具体信息，配置了不显示
+    #  instance: # eureka面板status列是否显示ip端详等具体信息，配置了不显示
     # 服务server id
-#    instance-id: payment8001
+    #    instance-id: payment8001
     # 访问路径可以显示ip地址
 #    prefer-ip-address: true
