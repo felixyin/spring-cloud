@@ -1,5 +1,7 @@
 package com.qtrj.springcloud.controller;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import com.qtrj.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,9 +23,18 @@ public class OrderHystrixController {
     }
 
     @GetMapping("/consumer/payment/hystrix/timeout")
+    @HystrixCommand(fallbackMethod = "paymentInfo_Timeout_handler", commandProperties = {
+            // 设置此方法允许的默认超时时间
+//            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1500")
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "2500")
+    })
     public String paymentHystrixTimeout() {
 //        openfeign (ribbon) 默认只等待1秒中
         return paymentService.paymentInfo_Timeout();
+    }
+
+    public String paymentInfo_Timeout_handler() {
+        return "系统繁忙，运行报错了！consumer端" + "\t😯～～";
     }
 
 }
