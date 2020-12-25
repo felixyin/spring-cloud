@@ -22,7 +22,5 @@ eureka:
     service-url:
       defaultZone: http://eureka7001.com:7001/eureka, http://eureka7002.com:7002/eureka
   instance: # eureka面板status列是否显示ip端详等具体信息，配置了不显示
-    # 服务server id
-    instance-id: payment8002
-    # 访问路径可以显示ip地址
-    prefer-ip-address: true
+    instance-id: payment8001 # 服务server id
+    prefer-ip-address: true # 访问路径可以显示ip地址
