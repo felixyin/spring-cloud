@@ -1,0 +1,13 @@
+server:
+  port: 8004
+
+spring:
+  application:
+    #    服务别名
+    name: cloud-payment-service
+  #     排除spring jdbc
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+  cloud:
+    zookeeper:
+      connect-string: localhost:2181 #,localhost:2182,localhost,2183
