@@ -8,9 +8,9 @@ spring:
     config:
       server:
         git:
-          uri: http://qtrj.i234.me:30000/nonsense/spring-cloud-config.git
-#          search-paths:
-#            - test
+          uri: http://qtrj.i234.me:30000/nonsense/spring-cloud.git
+          search-paths:
+            - config-at-gitrepo
           username: felixyin
           password: Ybkk1027
           skip-ssl-validation: true
