@@ -1,5 +1,5 @@
 # 刷新配置，先找3344配置中心，配置中心从git服务器获取最新。
-POST http://localhost:3344/actuator/refresh
+POST http://config-3344.com:3344/actuator/refresh
 Content-Type: application/json
 
 ###

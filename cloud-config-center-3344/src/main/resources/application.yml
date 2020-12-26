@@ -1,6 +1,7 @@
 server:
   port: 3344
 
+
 spring:
   application:
     name: cloud-config-center
@@ -15,16 +16,12 @@ spring:
           password: Ybkk1027
           skip-ssl-validation: true
       label: master
-      discovery:
-        enabled: true
-        service-id: ${spring.application.name}
-    refresh:
-      enabled: true # 自动刷新配置，必须开启此选项
   rabbitmq:
-    host: 127.0.0.1
+    host: localhost
     port: 5672
     username: guest
     password: guest
+
 
 eureka:
   client:
@@ -32,6 +29,7 @@ eureka:
       defaultZone: http://eureka7001.com:7001/eureka
 
 # 暴露bus刷新配置的端点
+
 management:
   endpoints:
     web:
