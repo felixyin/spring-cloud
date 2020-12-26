@@ -5,10 +5,12 @@ spring:
   application:
     name: config-client
   cloud:
+    refresh:
+      enabled: true # 开启刷新
     config:
       label: master # 分支名称
       name: config #配置文件名称
-      profile: test # 读取的后缀，上述三个综合，为master分支上的config-dev.yml的配置文件被读取，http://config-3344.com:3344/master/config-dev.yml
+      profile: dev # 读取的后缀，上述三个综合，为master分支上的config-dev.yml的配置文件被读取，http://config-3344.com:3344/master/config-dev.yml
       uri: http://config-3344.com:3344 #配置中心的地址
 
 eureka:
@@ -16,3 +18,8 @@ eureka:
     service-url:
       defaultZone: http://eureka7001.com:7001/eureka
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
