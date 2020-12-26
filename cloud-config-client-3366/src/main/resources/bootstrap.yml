@@ -5,8 +5,8 @@ spring:
   application:
     name: config-client
   cloud:
-#    refresh:
-#      enabled: true # 开启刷新
+    refresh:
+      enabled: true # 开启刷新
     config:
       label: master # 分支名称
       name: config #配置文件名称
