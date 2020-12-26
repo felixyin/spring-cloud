@@ -5,13 +5,21 @@ spring:
   application:
     name: config-client
   cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: ${spring.application.name}
     refresh:
       enabled: true # 开启刷新
-    config:
-      label: master # 分支名称
-      name: config #配置文件名称
-      profile: dev # 读取的后缀，上述三个综合，为master分支上的config-dev.yml的配置文件被读取，http://config-3344.com:3344/master/config-dev.yml
-      uri: http://config-3344.com:3344 #配置中心的地址
+    #    config:
+    #      label: master # 分支名称
+    #      name: config #配置文件名称
+    #      profile: dev # 读取的后缀，上述三个综合，为master分支上的config-dev.yml的配置文件被读取，http://config-3344.com:3344/master/config-dev.yml
+    #      uri: http://config-3344.com:3344 #配置中心的地址
+    bus:
+      enabled: true
+      trace:
+        enabled: true
 
   rabbitmq: #rabbitmq相关配置，15672是web管理端口，5672是mq访问端口
     port: 5672

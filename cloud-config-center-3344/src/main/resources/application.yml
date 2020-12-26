@@ -15,6 +15,9 @@ spring:
           password: Ybkk1027
           skip-ssl-validation: true
       label: master
+      discovery:
+        enabled: true
+        service-id: ${spring.application.name}
     refresh:
       enabled: true # 自动刷新配置，必须开启此选项
   rabbitmq:
@@ -33,5 +36,5 @@ management:
   endpoints:
     web:
       exposure:
-#        include: "bus-refresh"
+        #        include: "bus-refresh"
         include: "*"
