@@ -11,7 +11,6 @@ import javax.annotation.Resource;
 
 /**
  * 压力测试工具：brew install jmeter
- *
  */
 @RestController
 @Slf4j
@@ -27,8 +26,15 @@ public class PaymentController {
     public String paymentInfo_OK(@PathVariable("id") Long id) {
         return paymentService.paymentInfo_OK(id);
     }
+
     @GetMapping("/payment/hystrix/timeout")
     public String paymentInfo_Timeout() {
         return paymentService.paymentInfo_Timeout();
+    }
+
+    @GetMapping("/payment/circuit/breaker/{id}")
+    public String paymentCircuitBreaker(@PathVariable("id") Long id) throws Exception {
+        log.info("***** id: " + id);
+        return paymentService.paymentCircuitBreaker(id);
     }
 }
