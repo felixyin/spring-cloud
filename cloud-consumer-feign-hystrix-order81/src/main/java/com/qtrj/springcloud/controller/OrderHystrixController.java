@@ -3,7 +3,7 @@ package com.qtrj.springcloud.controller;
 import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
-import com.qtrj.springcloud.service.PaymentService;
+import com.qtrj.springcloud.service.PaymentHystrixService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +19,7 @@ import javax.annotation.Resource;
 public class OrderHystrixController {
 
     @Resource
-    private PaymentService paymentService;
+    private PaymentHystrixService paymentService;
 
     @GetMapping("/consumer/payment/hystrix/ok/{id}")
     public String getPaymentById(@PathVariable("id") Long id) {

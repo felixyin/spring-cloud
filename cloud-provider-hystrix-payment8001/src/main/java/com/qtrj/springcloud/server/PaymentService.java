@@ -40,4 +40,8 @@ public class PaymentService {
         return "线程池：" + threadName + " paymentInfo_Timeout_handler 系统繁忙，运行报错了！" + "\t😯～～";
     }
 
+
+//   服务熔断
+
+
 }
