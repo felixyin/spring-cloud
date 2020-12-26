@@ -182,3 +182,5 @@ DerivedData/
 ## Gcc Patch
 /*.gcno
 
+mysql/
+standalone-logs/
