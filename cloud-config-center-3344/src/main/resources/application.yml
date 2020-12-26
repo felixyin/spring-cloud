@@ -15,8 +15,10 @@ spring:
           password: Ybkk1027
           skip-ssl-validation: true
       label: master
+    refresh:
+      enabled: true # 自动刷新配置，必须开启此选项
   rabbitmq:
-    host: localhost
+    host: 127.0.0.1
     port: 5672
     username: guest
     password: guest
@@ -31,4 +33,5 @@ management:
   endpoints:
     web:
       exposure:
-        include: "bus-refresh"
+#        include: "bus-refresh"
+        include: "*"
