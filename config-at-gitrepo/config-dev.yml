@@ -1,2 +1,2 @@
 config:
-  info: "master branch,spring-cloud-config/config-dev.yml version=2"
+  info: "master branch,config-at-gitrepo/config-dev.yml version=2.01"
