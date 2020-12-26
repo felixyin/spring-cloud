@@ -1,0 +1,14 @@
+GET http://localhost:9527/payment/lb
+Accept: text/plain
+Cookie: username=zzyy
+X-Request-Id:2
+
+> {%
+client.test("Test successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+  client.assert(response.body === '8001' || response.body==='8002', "Response status is not 200");
+});
+%}
+
+###
+
