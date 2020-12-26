@@ -10,7 +10,7 @@ spring:
         git:
           uri: http://qtrj.i234.me:30000/nonsense/spring-cloud.git
           search-paths:
-            - config-at-gitrepo
+            - config-at-gitrepo # 仓库中的哪个目录作为配置目录
           username: felixyin
           password: Ybkk1027
           skip-ssl-validation: true
